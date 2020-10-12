@@ -22,8 +22,9 @@ rq worker
 ```
 Start the api
 ```
-flask run
+flask run -p 8080
 ```
+Api available @ [localhost](http://localhost:8080)
 
 ---
 
