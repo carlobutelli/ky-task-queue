@@ -31,7 +31,7 @@ Api available @ [localhost](http://localhost:8080)
 ### Env variables
 --------------------
 ```bash
-export FLASK_APP=api
+export FLASK_APP=api/wsgi.py
 export FLASK_DEBUG=1
 export APP_SETTINGS=Local
 export REDIS_HOST=localhost
