@@ -5,12 +5,12 @@ import logging
 import uuid
 
 from flask import Flask, request, g
-# import redis
-# from rq import Queue
+import redis
+from rq import Queue
 
-# r = redis.Redis()
+r = redis.Redis()
 
-# q = Queue(connection=r)
+q = Queue(connection=r)
 
 
 def create_app():
@@ -26,8 +26,8 @@ def create_app():
     app.shell_context_processor({"api": app})
 
     # registering blueprints
-    from .tasks.views import task as task_bp
-    app.register_blueprint(task_bp)
+    from .tasks.views import tasks as tasks_bp
+    app.register_blueprint(tasks_bp)
 
     # log handler
     log_level = logging.INFO if not app.config.get("DEBUG") else logging.DEBUG
