@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 from flask import Blueprint, g, request, current_app as app
 
-from api.tasks.handler import add_new_task
+from api.tasks.handler import add_new_task, get_remaining_jobs
 
 tasks = Blueprint("tasks", __name__)
 
@@ -21,3 +21,10 @@ def add_task():
         url = request.args.get("url")
 
     return add_new_task(url)
+
+
+@tasks.route("/jobs", methods=["GET"])
+def get_queued_jobs():
+    app.logger.info(f'[TASKS] {g.transaction_id}: got new request to check remaining jobs')
+
+    return get_remaining_jobs()

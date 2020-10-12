@@ -22,4 +22,11 @@ def add_new_task(url: str):
 
         message = f"Task queued at {task.enqueued_at.strftime('%a, %d %b %Y %H:%M:%S')}. {q_len} jobs queued"
 
-    return render_template("index.html", message=message, jobs=jobs)
+    return render_template("add_task.html", message=message, jobs=jobs)
+
+
+def get_remaining_jobs():
+    jobs = q.jobs
+    q_len = len(q)
+    message = f"Remaining {q_len} jobs queued"
+    return render_template("show_queued_jobs.html", message=message, jobs=jobs)

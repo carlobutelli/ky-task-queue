@@ -1,32 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+{% extends "base.html" %}
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <title>Flask Task Queue</title>
-</head>
-<body>
+{% block show_queued_jobs %}
   <div class="container">
     <div class="row">
       <div class="col">
         <h5 class="mt-3">Word counter on a web page</h5>
         <div class="card mt-3">
           <div class="card-body">
-            <form action="/add-task">
-              <div class="form-group">
-                <label>Word counter at: </label>
-                  <label>
-                      <input type="text" class="form-control" name="url" placeholder="Enter URL" required>
-                  </label>
-                  {% if message %}
-                <small id="emailHelp" class="form-text text-muted">{{ message }}</small>
-                {% endif %}
-              </div>
-              <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
+              {% if message %}
+                  <small id="emailHelp" class="form-text text-muted">{{ message }}</small>
+              {% endif %}
           </div>
         </div>
       </div>
@@ -36,7 +19,7 @@
   <div class="container">
     <div class="row">
       <div class="col">
-        <h5 class="mt-3 mb-3">Job queue</h5>
+        <h5 class="mt-3 mb-3">Job in queue</h5>
         {% if jobs %}
         {% for job in jobs %}
         <div class="card mb-3">
@@ -56,6 +39,4 @@
       </div>
     </div>
   </div>
-
-</body>
-</html>
+{% endblock %}
