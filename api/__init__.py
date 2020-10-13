@@ -8,7 +8,11 @@ from flask import Flask, request, g
 import redis
 from rq import Queue
 
-r = redis.Redis()
+r = redis.Redis(
+    host=os.environ.get('REDIS_HOST'),
+    port=os.environ.get('REDIS_PORT'),
+    db=os.environ.get('REDIS_DB')
+)
 
 q = Queue(connection=r)
 

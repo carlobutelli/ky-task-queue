@@ -13,33 +13,21 @@ In general a Python worker exists solely as a work horse to perform lengthy or b
 
 ---
 
-Start Redis container
+Start the API and Redis
 
 ```bash
-docker-compose up -d
+docker-compose up
 ```
 
-Create virtual environment and install dependencies
-
-```bash
-virtualenv -p python3 venv && . venv/bin/activate
-pip3 install -r requirements.txt
-
-```
-
-Start the worker
+Open a new tab or terminal window and start the worker
 
 ```
 rq worker
 ```
 
-Open a new tab or terminal window and start the api
+this will allow to watch all the jobs being performed in background from the worker.
 
-```
-. venv/bin/activate && flask run -p 8080
-```
-
-Api is available [Here](http://localhost:8080)
+Api is available [Here](http://localhost:8080/)
 
 ---
 
@@ -63,10 +51,11 @@ Api is available [Here](http://localhost:8080)
 ```bash
 export FLASK_APP=api/wsgi.py
 export FLASK_DEBUG=1
-export APP_SETTINGS=Local
-export REDIS_HOST=localhost
+export FLASK_ENV=development
+export APP_SETTINGS=Development
+export REDIS_HOST=redis
 export REDIS_PORT=6379
-export REDIS_PASSWORD=pass123
+export REDIS_DB=0
 ```
 
 ---

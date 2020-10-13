@@ -5,7 +5,7 @@ from bs4 import BeautifulSoup
 import time
 
 
-def count_words(url):
+def count_words(url: str):
 
     print(f"Counting words at {url}")
 
