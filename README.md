@@ -47,7 +47,7 @@ Api is available [Here](http://localhost:8080)
 
 ---
 
-1. Once the API is up and running with the worker and redis go to [Add Tasks](http://localhost:8080/add-task)
+1. Once all the services (API, worker and redis) are up and running go to [Add Tasks](http://localhost:8080/add-task)
    and submit an URL.
 
 2. Refresh the page as many time as you want to simulate to add tasks to the queue --> The number of queued jobs will increase straight away.
