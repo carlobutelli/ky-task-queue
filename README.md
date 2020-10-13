@@ -33,10 +33,10 @@ Start the worker
 rq worker
 ```
 
-Start the api
+Open a new tab or terminal window and start the api
 
 ```
-flask run -p 8080
+. venv/bin/activate && flask run -p 8080
 ```
 
 Api is available [Here](http://localhost:8080)
