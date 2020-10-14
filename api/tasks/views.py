@@ -11,7 +11,7 @@ def welcome():
     return 'Welcome to the queue task system!'
 
 
-@tasks.route("/add-task", methods=["GET", "POST"])
+@tasks.route("/add-tasks", methods=["POST"])
 def add_task():
     app.logger.info(f'[TASKS] {g.transaction_id}: got new request to add task')
     url = None
@@ -23,7 +23,7 @@ def add_task():
     return add_new_task(url)
 
 
-@tasks.route("/jobs", methods=["GET"])
+@tasks.route("/tasks", methods=["GET"])
 def get_queued_jobs():
     app.logger.info(f'[TASKS] {g.transaction_id}: got new request to check remaining jobs')
 
